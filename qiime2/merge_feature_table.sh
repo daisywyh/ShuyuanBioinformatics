@@ -1,5 +1,5 @@
 #Author: Yu Han Daisy Wang
-#Date: June 21 2020
+#Last Updated: 25 Sept 2020
 #Description: merges all of the feature tables
 #Note: this script must be used AFTER the feature_table.sh scripts, where the feature tables are generated
 
@@ -19,6 +19,7 @@ qiime feature-table merge \
   --i-tables /file_pathway1/1table.qza \
   --i-tables /file_pathway2/2table.qza \
    --p-overlap-method sum \
-    --o-merged-table /file_pathway/merged_table.qza
+    --o-merged-table /file_pathway/your_name_merged_table.qza
 
 echo all merging is done
+echo output files: merged_table.qza

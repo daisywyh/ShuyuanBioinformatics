@@ -1,5 +1,5 @@
 #Author: Yu Han Daisy Wang
-#Date: June 21 2020
+#Last Updated: 25 Sept 2020
 #Description: does "step 6" in the moving pictures tutorial for the merged stuff. Creates phylogenetic tree.
 #note: this script must be used AFTER the merge.sh script, where all things have been properly merged.
 
@@ -15,24 +15,29 @@ export LANG=C.UTF-8
 
 echo generating tree for phylogenetic diversity analyses
 
-echo alignment mafft
+echo start alignment mafft
 qiime alignment mafft \
   --i-sequences /file_pathway/rep-seqs.qza \
   --o-alignment /file_pathway/aligned-rep-seqs.qza
+echo end alignment mafft
 
 echo alightment mask
 qiime alignment mask \
   --i-alignment /file_pathway/aligned-rep-seqs.qza \
   --o-masked-alignment /file_pathway/masked-aligned-rep-seqs.qza
+echo end alightment mask
 
-echo phylogeny fasttree
+echo start phylogeny fasttree
 qiime phylogeny fasttree \
   --i-alignment /file_pathway/masked-aligned-rep-seqs.qza \
   --o-tree /file_pathway/unrooted-tree.qza
+echo end phylogeny fasttree
 
-echo phylogeny midpoint-root
+echo start phylogeny midpoint-root
 qiime phylogeny midpoint-root \
   --i-tree /file_pathway/unrooted-tree.qza \
   --o-rooted-tree /file_pathway/rooted-tree.qza
+echo end phylogeny midpoint-root
 
 echo merge_analytics.sh done
+echo merge_analytics output files: aligned-rep-seqs.qza, masked-aligned-rep-seqs.qza, unrooted-tree.qza, rooted-tree 
