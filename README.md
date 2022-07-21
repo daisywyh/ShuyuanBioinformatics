@@ -1,2 +1,2 @@
 # Shuyuan Bioinformatics
-Work in progress. Come back later to see some cool stuff!
+A very roughly outlined workflow for longitudinal analysis of various microbiome samples based on the QIIME 2 "Moving Pictures" tutorial.
